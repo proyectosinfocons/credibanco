@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "ac2e629c-ed6d-4e6c-908c-b51561e69a3f",
+		"name": "credibanco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3227998"
+	},
+	"item": [
+		{
+			"name": "Card",
+			"item": [
+				{
+					"name": "CreateCard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pan\": \"1234563333345622\",\r\n    \"cardHolder\": \"John Due\",\r\n    \"documentNumber\": \"1234567895\",\r\n    \"cardType\": \"CREDITO\",\r\n    \"phoneNumber\": \"1234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/credibanco/card",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"credibanco",
+								"card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/credibanco/card/472689c8f8a29cd40496bc535b75e0d65c7e37337936ba736c2eb537fa7c22c1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"credibanco",
+								"card",
+								"472689c8f8a29cd40496bc535b75e0d65c7e37337936ba736c2eb537fa7c22c1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "enrollCard",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identifier\": \"472689c8f8a29cd40496bc535b75e0d65c7e37337936ba736c2eb537fa7c22c1\",\r\n    \"validationNumber\": \"51\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/credibanco/card/enroll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"credibanco",
+								"card",
+								"enroll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCard",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/credibanco/card/472689c8f8a29cd40496bc535b75e0d65c7e37337936ba736c2eb537fa7c22c1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"credibanco",
+								"card",
+								"472689c8f8a29cd40496bc535b75e0d65c7e37337936ba736c2eb537fa7c22c1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tx",
+			"item": [
+				{
+					"name": "CreateTx",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identifier\": \"2f98f3b24dff7e905019fa636c8f9ac34bbad0756b99b1fe7a76ec96ccf9dce3\",\r\n    \"referenceNumber\": \"111113\",\r\n    \"amount\": 5000,\r\n    \"address\": \"cr 70 # cl 100 - 99\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/credibanco/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"credibanco",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReverseTx",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identifier\": \"2f98f3b24dff7e905019fa636c8f9ac34bbad0756b99b1fe7a76ec96ccf9dce3\",\r\n    \"referenceNumber\": \"111113\",\r\n    \"amount\": 5000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/credibanco/transaction/reverse",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"credibanco",
+								"transaction",
+								"reverse"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/credibanco/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"credibanco",
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
